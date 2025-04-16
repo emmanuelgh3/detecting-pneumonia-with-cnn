@@ -97,9 +97,9 @@ Primero, debes descargar los archivos requeridos y asegurarte de tenerlos en una
 
 - `pneumonia_classifier.ipynb` (Código general)
 - `mejor_modelo.h5` (Modelo entrenado)
-- `test.zip` (Conjunto de imágenes de prueba comprimido)
+- `test.rar` (Conjunto de imágenes de prueba comprimido)
 
-Coloca todos estos archivos en una carpeta en tu sistema (descomprimir el archivo .zip).
+Coloca todos estos archivos en una carpeta en tu sistema (descomprimir el archivo .rar).
 
 ### 2. Instalar las Librerías Necesarias
 
