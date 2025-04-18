@@ -36,7 +36,7 @@ Cada carpeta contiene dos subcarpetas:
 ### Validación y Control de Calidad
 
 - Las imágenes fueron seleccionadas tras un proceso de control de calidad que eliminó escaneos defectuosos o ilegibles.
-- Las etiquetas fueron asignadas por **dos médicos especialistas**.
+- Las etiquetas fueron asignadas por dos médicos especialistas.
 - Un tercer experto revisó el conjunto de evaluación para asegurar mayor precisión diagnóstica.
 
 ## Librerías y Requisitos
@@ -50,7 +50,7 @@ Cada carpeta contiene dos subcarpetas:
 
 ## Arquitectura del Modelo
 
-### Arquitectura del Modelo
+### Estructura General
 
 Se utilizó una red neuronal convolucional (CNN) construida desde cero con Keras. La arquitectura del modelo es la siguiente:
 
@@ -71,17 +71,17 @@ Esta arquitectura permite detectar patrones espaciales en imágenes de rayos X p
 
 ### Filtros Elegidos
 
-La red utiliza filtros convolucionales con tamaños de **3x3** debido a sus siguientes características:
+La red utiliza filtros convolucionales con tamaños de 3x3 debido a sus siguientes características:
 
-1. **Eficiencia Computacional**: Un tamaño de filtro pequeño como el **3x3** es computacionalmente eficiente y al mismo tiempo sigue siendo capaz de capturar características importantes en las imágenes. 4 capas convolucionales son suficientes para imágenes de 150x150 px (mayor profundidad no mejoró resultados en pruebas preliminares), además de que 256 filtros en la última capa mantienen un balance (7.61MB de pesos).
+1. **Eficiencia Computacional**: Un tamaño de filtro pequeño como el 3x3 es computacionalmente eficiente y al mismo tiempo sigue siendo capaz de capturar características importantes en las imágenes. 4 capas convolucionales son suficientes para imágenes de 150x150 px (mayor profundidad no mejoró resultados en pruebas preliminares), además de que 256 filtros en la última capa mantienen un balance (7.61MB de pesos).
    
-2. **Características Locales**: Los filtros de **3x3** son efectivos para capturar patrones locales en imágenes, como bordes y texturas, lo que es esencial en el procesamiento de imágenes médicas donde los detalles y pequeños cambios pueden ser indicativos de enfermedades como lo es en este caso particular.
+2. **Características Locales**: Los filtros de 3x3 son efectivos para capturar patrones locales en imágenes, como bordes y texturas, lo que es esencial en el procesamiento de imágenes médicas donde los detalles y pequeños cambios pueden ser indicativos de enfermedades como lo es en este caso particular.
 
 ### Entrenamiento del Modelo
 
 - **Función de pérdida:** `binary_crossentropy`  
 - **Optimizador:** `Adam`  
-- **Métricas de evaluación:** `accuracy`, `precision`, `recall`, `AUC`.  
+- **Métricas de evaluación:** `accuracy`, `precision`, `recall`, `AUC`
 - **Épocas:** 10  
 - **Tamaño de batch:** 32  
 
@@ -129,7 +129,7 @@ Primero, debes cargar el modelo entrenado con el siguiente comando:
 model = load_model('mejor_modelo.h5')
 ```
 
-A continuación, copiar la ruta de la carpeta ´test´ para definir el generador de imágenes para preprocesar y cargar las imágenes de test:
+A continuación, copiar la ruta de la carpeta ´test´ para cargar las imágenes de prueba y definir el generador de imágenes:
 ```python
 test_dir = r'tu/ruta/chest_xray/test'  #Ruta de la carpeta de test
 image_size = (150, 150)
